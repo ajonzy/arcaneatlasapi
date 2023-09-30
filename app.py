@@ -223,7 +223,7 @@ def map_add():
 
     count = 1
     finalName = name
-    while db.session.query(Map).filter(Map.name == finalName).first() != None:
+    while db.session.query(Map).filter(Map.user_id == user_id).filter(Map.name == finalName).first() != None:
         count += 1
         finalName = f"{name} ({count})"
 
@@ -257,7 +257,7 @@ def map_update(id):
     if name is not None:
         count = 1
         finalName = name
-        while db.session.query(Map).filter(Map.name == finalName).first() != None:
+        while db.session.query(Map).filter(Map.user_id == user_id).filter(Map.name == finalName).first() != None:
             count += 1
             finalName = f"{name} ({count})"
         record.name = finalName
@@ -310,7 +310,7 @@ def token_add():
 
     count = 1
     finalName = name
-    while db.session.query(Token).filter(Token.name == finalName).first() != None:
+    while db.session.query(Token).filter(Token.user_id == user_id).filter(Token.name == finalName).first() != None:
         count += 1
         finalName = f"{name} ({count})"
 
@@ -343,7 +343,7 @@ def token_update(id):
     if name is not None:
         count = 1
         finalName = name
-        while db.session.query(Token).filter(Token.name == finalName).first() != None:
+        while db.session.query(Token).filter(Token.user_id == user_id).filter(Token.name == finalName).first() != None:
             count += 1
             finalName = f"{name} ({count})"
         record.name = finalName
